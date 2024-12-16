@@ -1,0 +1,44 @@
+<div class="container">
+  <!-- Header -->
+  <header>
+    <h1>Statistics Overview</h1>
+    <div class="icons">
+      <i>🔔</i> <!-- Notification icon -->
+      <i>🛒</i> <!-- Shopping cart icon -->
+      <i>👤</i> <!-- Profile icon -->
+    </div>
+  </header>
+
+  <!-- Error Message -->
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
+  <!-- Statistics Section -->
+  <div class="stats-section" *ngIf="orders">
+    <!-- Orders Section -->
+    <h2 class="row-title">Order Details</h2>
+    <div class="stat-card" *ngFor="let product of orders.products">
+      <!-- <img src="assets/default-product.png" alt="{{ product.name }}" /> -->
+      <div class="stat-value">${{ product.price }}</div>
+      <p>Product: <span>{{ product.name }}</span></p>
+      <p>Quantity: <span>{{ product.quantity }}</span></p>
+    </div>
+
+    <!-- Summary Section -->
+    <h2 class="row-title">Summary</h2>
+    <div class="stat-card">
+      <h2>Total Amount</h2>
+      <div class="stat-value">${{ orders.total }}</div>
+    </div>
+    <div class="stat-card">
+      <h2>Order Status</h2>
+      <div class="stat-value">{{ orders.status }}</div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2024 ShopCart. All rights reserved.
+  </footer>
+</div>

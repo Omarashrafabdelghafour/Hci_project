@@ -1,0 +1,39 @@
+<div class="container">
+  <!-- Header -->
+  <header>
+    <nav>
+      <a routerLink="/shopping-cart">ShopCart</a>
+      <a routerLink="/home">Home</a>
+      <a routerLink="/listing-creation">Listing Creation</a>
+      <a routerLink="/statistics">Analytics and Reporting</a>
+    </nav>
+    <div class="icons">
+      <i>🔔</i>
+      <i>👤</i>
+      <i>🛒</i>
+    </div>
+  </header>
+
+  <!-- Form Section -->
+  <div class="form-section">
+    <!-- Form Container -->
+    <div class="form-container">
+      <input type="text" [(ngModel)]="productName" placeholder="Product Name" required>
+      <input type="text" [(ngModel)]="productCategory" placeholder="Product Category" required>
+      <input type="number" [(ngModel)]="productPrice" placeholder="Price" required>
+      <input type="text" [(ngModel)]="productImageUrl" placeholder="Image URL" required> <!-- Image URL input -->
+      <textarea [(ngModel)]="productDescription" placeholder="Description of product..." required></textarea>
+      <button (click)="onSubmit()">Submit</button>
+    </div>
+
+    <!-- Illustration -->
+    <div class="illustration">
+      <img *ngIf="productImageUrl" [src]="productImageUrl" alt="Product Illustration" style="max-width: 100%; height: auto;">
+    </div>
+  </div>
+</div>
+
+<!-- Notification Message -->
+<div class="notification" id="notification" [ngClass]="notificationType" *ngIf="notificationMessage">
+  {{ notificationMessage }}
+</div>

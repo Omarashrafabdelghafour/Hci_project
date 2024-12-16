@@ -1,0 +1,24 @@
+<div class="container">
+    <h1>Feel Free to Drop Us Your Feedback</h1>
+    <p>"Please rate your experience with us on a scale of 1 to 5. Your feedback helps us improve!"</p>
+  
+    <!-- Star Rating -->
+    <div class="rating">
+      <span *ngFor="let star of [1, 2, 3, 4, 5]" 
+            (click)="updateStars(star)" 
+            [ngClass]="{'active': star <= selectedRating}">
+        ⭐
+      </span>
+    </div>
+  
+    <!-- Feedback Textarea -->
+    <textarea [(ngModel)]="feedbackText" placeholder="Your feedback..."></textarea>
+  
+    <!-- Submit Button -->
+    <button class="submit-button" (click)="submitFeedback()">Submit</button>
+  
+    <!-- Confirmation and Error Messages -->
+    <p class="confirmation" *ngIf="confirmationMessage">{{ confirmationMessage }}</p>
+    <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+  </div>
+  

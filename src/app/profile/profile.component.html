@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="header">
+    <div class="profile-info">
+      <img src="https://img.icons8.com/?size=100&id=41799&format=png&color=000000" alt="User Avatar">
+      <div>
+        <h2>John Doe</h2>
+        <p>Joined: January 2024</p>
+      </div>
+    </div>
+    <!-- Updated Edit Profile button -->
+    <button class="edit-button" (click)="onEditProfile()">Edit Profile</button>
+
+  </div>
+  <div class="content">
+    <div class="sidebar">
+      
+      <div class="feedback-icon" (click)="navigateToFeedback()" style="cursor:pointer;">
+      <img src="https://img.icons8.com/?size=100&id=463&format=png&color=000000" alt="Feedback Icon"> <!-- Feedback Icon as Image -->
+      <span>View Feedback</span>
+    </div>
+    
+    </div>
+    <div class="main">
+      <section>
+        <h3>Active Listings</h3>
+        <ul>
+          <li>
+            <div>
+              <strong>Vintage Camera</strong>
+              <span>Price: $120</span>
+            </div>
+            <a href="#" (click)="onEditListing($event, 'Vintage Camera')">Edit</a>
+          </li>
+          <li>
+            <div>
+              <strong>Gaming Laptop</strong>
+              <span>Price: $950</span>
+            </div>
+            <a href="#" (click)="onEditListing($event, 'Gaming Laptop')">Edit</a>
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h3>Recent Purchases</h3>
+        <ul>
+          <li>
+            <div>
+              <strong>Bluetooth Headphones</strong>
+              <span>Date: 2024-11-25</span>
+            </div>
+            <a href="#" (click)="onViewPurchaseDetails($event, 'Bluetooth Headphones')">View Details</a>
+          </li>
+        </ul>
+      </section>
+     
+    </div>
+  </div>
+</div>

@@ -1,0 +1,86 @@
+<div class="container">
+  <!-- Header Section -->
+  <header>
+    <nav>
+      <a href="#">ShopCart</a>
+      <a href="#">Home</a>
+      <a href="#">Listing Creation</a>
+      <a href="#">Analytics and Reporting</a>
+    </nav>
+    <div class="icons">
+      <i>🔔</i>
+      <i>🛒</i>
+      <i>👤</i>
+    </div>
+  </header>
+
+  <!-- Page Title -->
+  <div class="header-title">
+    <h1>Shopping Cart</h1>
+    <p *ngIf="useremail">Logged in as: {{ useremail }}</p>
+  </div>
+
+  <!-- Cart Section -->
+  <div class="cart">
+    <!-- Products Table -->
+    <div class="products">
+      <table>
+        <thead>
+          <tr>
+            <th>Products</th>
+            <th>Price</th>
+            <th>Quantity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of products; let i = index">
+            <td>{{ product.name }}</td>
+            <td>${{ product.price }}</td>
+            <td>
+              <button (click)="updateQuantity(i, -1)" aria-label="Decrease quantity">-</button>
+              <input type="text" [value]="product.quantity" readonly />
+              <button (click)="updateQuantity(i, 1)" aria-label="Increase quantity">+</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- Clear Cart Button -->
+      <div class="clear-cart">
+        <button (click)="clearCart()" class="btn-clear">Clear Cart</button>
+      </div>
+    </div>
+
+    <!-- Order Summary -->
+    <div class="order-summary">
+      <h2>Order Summary</h2>
+      <div class="summary-item">
+        <span>Subtotal</span>
+        <span>${{ subtotal }}</span>
+      </div>
+      <div class="summary-item">
+        <span>Shipping</span>
+        <span>Free</span>
+      </div>
+      <div class="total">
+        Total: ${{ subtotal }}
+      </div>
+      <!-- Checkout Button -->
+      <button (click)="proceedToCheckout()" class="btn-checkout">Proceed to Checkout</button>
+    </div>
+  </div>
+
+  <!-- Notification Message Box -->
+  <div *ngIf="notificationMessage" class="notification" [ngClass]="notificationType">
+    {{ notificationMessage }}
+  </div>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="email">{{ useremail || 'user@example.com' }}</div>
+    <div class="pagination">
+      <span class="active"></span>
+      <span></span>
+      <span></span>
+    </div>
+  </footer>
+</div>

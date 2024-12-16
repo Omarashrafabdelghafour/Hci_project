@@ -1,0 +1,158 @@
+/* Reset and Body Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  background-color: #f9f9f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+/* Container Styles */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Styles */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+header nav {
+  display: flex;
+  gap: 20px;
+}
+
+header nav a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1rem;
+}
+
+header nav a:hover {
+  color: #d9167f;
+}
+
+header .icons {
+  display: flex;
+  gap: 15px;
+}
+
+header .icons i {
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* Form Section Styles */
+.form-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.form-section .form-container {
+  flex: 1;
+  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Form Input Styles */
+.form-container input,
+.form-container textarea,
+.form-container button {
+  width: 100%;
+  padding: 15px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+}
+
+.form-container input,
+.form-container textarea {
+  background: #fcd7e4;
+  color: #333;
+  border: 1px solid #d9167f;
+}
+
+.form-container textarea {
+  height: 100px;
+  resize: none;
+}
+
+.form-container button {
+  background: #d9167f;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.form-container button:hover {
+  background: #b01366;
+}
+
+/* Illustration Styles */
+.illustration {
+  flex: 1;
+  max-width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.illustration img {
+  width: 80%;
+}
+
+/* Notification Styles */
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #4caf50; /* Default green for success */
+  color: white;
+  padding: 15px 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  font-size: 16px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.notification.success {
+  background-color: #4caf50; /* Green for success */
+}
+
+.notification.error {
+  background-color: #f44336; /* Red for errors */
+}
+
+.notification.hidden {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}

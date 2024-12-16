@@ -1,0 +1,109 @@
+.container {
+  background: white;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 800px;
+  margin: auto;
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  position: relative; /* Needed to position the arrow button */
+}
+
+h1 {
+  color: #d9167f;
+  margin-bottom: 10px; /* Reduced margin for a tighter layout */
+  font-size: 2rem; /* Increased font size for better visibility */
+}
+
+p {
+  margin-bottom: 15px; /* Reduced margin for a tighter layout */
+  color: #333;
+  font-size: 1rem; /* Consistent font size for readability */
+}
+
+.rating {
+  margin-bottom: 20px; /* Space below the rating stars */
+}
+
+.rating span {
+  cursor: pointer;
+  font-size: 2.5rem; /* Increased size for better interactivity */
+  color: #ccc; /* Default color (gray) */
+  transition: color 0.3s;
+}
+
+.rating span.active {
+  color: #f4d03f; /* Yellow for selected stars */
+}
+
+textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #d9167f;
+  background: #fcd7e4;
+  resize: none;
+  outline: none;
+  height: 100px; /* Fixed height for consistency */
+  margin-bottom: 20px;
+  font-size: 1rem; /* Consistent font size */
+}
+
+.submit-button {
+  background: #d9167f;
+  color: white;
+  font-weight: bold;
+  padding: 12px; /* Increased padding for a more substantial button */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 1.1rem; /* Adjusted font size for better readability */
+  transition: background 0.3s; /* Smooth background color transition */
+}
+
+.submit-button:hover {
+  background: #b01366; /* Darker shade on hover */
+}
+
+.confirmation {
+  margin-top: 20px;
+  color: green;
+  font-weight: bold;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+}
+
+/* Styling for the back arrow button */
+.back-button {
+  position: absolute; /* Position it relative to the container */
+  top: 10px; /* Adjust vertical placement */
+  left: 10px; /* Adjust horizontal placement */
+  background: #d9167f;
+  color: white;
+  border: none;
+  border-radius: 50%; /* Circular button */
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem; /* Size of the arrow */
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s, transform 0.2s;
+}
+
+.back-button:hover {
+  background: #b01366; /* Darker shade on hover */
+  transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+.back-button:active {
+  transform: scale(0.95); /* Slightly shrink on click */
+}

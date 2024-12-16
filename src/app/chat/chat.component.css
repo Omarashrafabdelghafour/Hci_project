@@ -1,0 +1,214 @@
+/* General Reset and Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  background-color: #fcd7e4; /* Light pink background */
+}
+
+/* Chat Container */
+.chat-container {
+  display: flex; /* Use flexbox for layout */
+  height: 100vh;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* Sidebar Styling */
+#sidebar {
+  width: 30%; /* Adjust width as needed */
+  background: #d9167f; /* Solid pink */
+  padding: 20px;
+  color: white;
+  border-radius: 10px 0 0 10px;
+  overflow-y: auto; /* Enable scrolling if needed */
+  height: 100%;
+}
+
+#sidebar h2 {
+  margin-bottom: 20px;
+}
+
+#chat-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 10px;
+  background: #fcd7e4; /* Light pink */
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.chat-item:hover {
+  background: white; /* Hover effect */
+  color: #d9167f;
+}
+
+.chat-item img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+/* Chat Window Styling */
+#chat-window {
+  width: 70%; /* Adjust width as needed */
+  background: white;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 0 10px 10px 0;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Header Styling */
+#chat-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#chat-header img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+#chat-header h3 {
+  color: #333;
+}
+
+/* Messages Container */
+#messages {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding-right: 10px; /* Add padding to prevent message overflow */
+}
+
+/* Message Styling */
+.message {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 15px;
+}
+
+.message img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.message-content {
+  padding: 10px;
+  border-radius: 10px;
+  max-width: 70%;
+  position: relative;
+}
+
+.message-content.sent {
+  background-color: #d9167f; /* Solid pink for sent messages */
+  color: white;
+  align-self: flex-end;
+  margin-left: auto;
+  border-top-left-radius: 0;
+}
+
+.message-content.received {
+  background-color: #fcd7e4; /* Light pink for received messages */
+  color: #333;
+  align-self: flex-start;
+  margin-right: auto;
+  border-top-right-radius: 0;
+}
+
+/* Input Area Styling */
+#input-area {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+#message-input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #d9167f;
+  background: #fcd7e4;
+  color: #333;
+}
+
+#message-input::placeholder {
+  color: #666;
+}
+
+#send-button {
+  background: #d9167f;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+#send-button:hover {
+  background: #b01366;
+}
+
+/* Error Message */
+.error-message {
+  color: red;
+  font-size: 0.9em;
+  margin-top: 5px;
+}
+
+/* New input field styles for sender and recipient emails */
+#sender-email,
+#recipient-email {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #d9167f;
+  background: #fcd7e4;
+  color: #333;
+  width: 100%; /* Full width of container */
+  margin-bottom: 10px;
+}
+
+#sender-email::placeholder,
+#recipient-email::placeholder {
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  /* Adjust layout for smaller screens */
+  .chat-container {
+    flex-direction: column; /* Stack sidebar and chat window */
+  }
+
+  #sidebar {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  #chat-window {
+    width: 100%;
+  }
+}

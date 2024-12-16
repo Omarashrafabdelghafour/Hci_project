@@ -1,0 +1,70 @@
+<header class="main-header">
+  <h1>ShopCart</h1>
+  <nav class="nav-links">
+    <a routerLink="/" class="nav-link">Home</a>
+    <a routerLink="/feedback" class="nav-link">Listing Creation</a>
+    <a routerLink="/analytics" class="nav-link">Analytics and Reporting</a>
+    <a routerLink="/shopping-cart" class="nav-link">🛒</a>
+    <a routerLink="/notifications" class="nav-link">🔔</a>
+  </nav>
+</header>
+
+<div class="promo">
+  <h2>Grab Upto 50% off on selected headphones</h2>
+  <p>Shop Now</p>
+</div>
+
+<div class="search-bar">
+  <input type="text" placeholder="Searching...">
+</div>
+
+<div class="category-buttons">
+  <button class="category-button">Headphones</button>
+  <button class="category-button">AirPods</button>
+</div>
+
+<div class="product-grid">
+  <div *ngFor="let product of products" class="product-card">
+    <img [src]="product.image || 'assets/default-placeholder.png'" alt="{{ product.name }}">
+    <h3>{{ product.name }}</h3>
+    <p class="rating">⭐⭐⭐⭐⭐</p>
+    <p>${{ product.price }}</p>
+    <button (click)="addToCart(product.name, product.price)">Add to cart</button>
+  </div>
+</div>
+
+<div *ngIf="notificationType !== 'hidden'" class="notification" [class]="notificationType">
+  {{ notificationMessage }}
+</div>
+<div class="notification hidden" id="notification"></div>
+
+<script>
+function showNotification(message, type) {
+    const notification = document.getElementById("notification");
+    notification.textContent = message;
+    notification.className = "notification"; // Reset class to apply default styles
+    if (type === 'error') {
+        notification.classList.add("error");
+    }
+    notification.classList.remove("hidden");
+
+    // Automatically hide notification after 3 seconds
+    setTimeout(() => {
+        notification.style.opacity = 0; // Fade out
+        notification.style.transform = "translateY(-20px)"; // Slide out
+        setTimeout(() => {
+            notification.classList.add("hidden"); // Completely hide
+            notification.style.opacity = 1; // Reset opacity for next use
+            notification.style.transform = "translateY(0)"; // Reset transform for next use
+        }, 300); // Wait for fade out to finish
+    }, 3000);
+}
+
+function addToCart(productName, productPrice) {
+    if (!productName || productPrice <= 0) {
+        showNotification('Error: Invalid product.', 'error');
+    } else {
+        showNotification(`${productName} has been added to your cart for $${productPrice.toFixed(2)}.`, 'success');
+    }
+}
+</script>

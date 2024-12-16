@@ -1,0 +1,189 @@
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Body Styles */
+body {
+  background-color: #f5f5f5;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Container Styles */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  overflow: hidden;
+}
+
+/* Header Section */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 15px;
+}
+
+.header .profile-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.header img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #d9167f;
+}
+
+.header .profile-info h2 {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.header .profile-info p {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.header .edit-button {
+  padding: 10px 20px;
+  background-color: #d9167f;
+  color: white;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.header .edit-button:hover {
+  background-color: #c0156f;
+}
+
+/* Content Section */
+.content {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  flex: 1;
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar ul li {
+  margin-bottom: 15px;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  padding: 10px 15px;
+  display: block;
+  background: #fff;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.sidebar ul li a:hover {
+  background-color: #d9167f;
+  color: white;
+}
+
+/* Main Content Styles */
+.main {
+  flex: 3;
+  padding: 15px;
+  border-radius: 8px;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+}
+
+.main section {
+  margin-bottom: 20px;
+}
+
+.main section h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.main section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.main section ul li {
+  background: #fff;
+  margin-bottom: 10px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main section ul li span {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.main section ul li a {
+  text-decoration: none;
+  color: #d9167f;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .content {
+      flex-direction: column;
+  }
+}
+.edit-button {
+  padding: 10px 20px;
+  background-color: #d9167f;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer; /* Ensures the cursor changes to a pointer */
+  transition: background-color 0.3s;
+}
+
+.edit-button:hover {
+  background-color: #c0156f; /* Hover effect */
+}
+
+.edit-button:active {
+  background-color: #a0135f; /* Active (click) effect */
+}

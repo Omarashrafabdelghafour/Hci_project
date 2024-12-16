@@ -1,0 +1,15 @@
+<div class="banner">
+  <h2>Grab Upto 50% off on selected headphones</h2>
+  <button class="shop-now">Shop Now</button>
+</div>
+
+<h2>Headphones For You!</h2>
+
+<div class="product-container">
+  <div class="product-card" *ngFor="let product of filteredProducts">
+    <img [src]="product.image" alt="{{ product.name }}" class="product-image" />
+    <h3>{{ product.name }}</h3>
+    <p class="rating">{{ product.rating }} ★</p>
+    <p>${{ product.price }}</p>
+  </div>
+</div>

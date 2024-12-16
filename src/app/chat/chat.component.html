@@ -1,0 +1,51 @@
+<div class="chat-container">
+    <!-- Sidebar with Chat List -->
+    <div id="sidebar">
+      <h2>CHATS</h2>
+      <div id="chat-list">
+        <div class="chat-item" *ngFor="let chat of chatList">
+          <img [src]="chat.avatar" alt="{{ chat.name }}">
+          <div>
+            <div><strong>{{ chat.name }}</strong></div>
+            <div>{{ chat.lastMessage }} <span style="font-size: 0.8em;">{{ chat.time }}</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Chat Window -->
+    <div id="chat-window">
+      <div id="chat-header">
+        <img src="https://img.icons8.com/?size=100&id=z-JBA_KtSkxG&format=png&color=000000" alt="User">
+        <!-- <h3>John Doe</h3> -->
+      </div>
+  
+      <!-- Messages Display -->
+      <div id="messages" #messagesContainer>
+        <div class="message" *ngFor="let message of messages">
+          <img [src]="message.sent ? 'https://img.icons8.com/?size=100&id=z-JBA_KtSkxG&format=png&color=000000' : 'assets/Fabio.png'" alt="User">
+          <div class="message-content" [ngClass]="{ 'sent': message.sent, 'received': !message.sent }">
+            {{ message.text }}
+          </div>
+        </div>
+      </div>
+  
+      <!-- Message Input Area -->
+      <div id="input-area">
+        <!-- Sender Email Input -->
+        <input type="email" id="sender-email" placeholder="Enter sender email" [(ngModel)]="senderEmail">
+        
+        <!-- Recipient Email Input -->
+        <input type="email" id="recipient-email" placeholder="Enter recipient email" [(ngModel)]="recipientEmail">
+        
+        <!-- Message Input -->
+        <input type="text" id="message-input" placeholder="Type a message..." #messageInput>
+        
+        <!-- Send Button -->
+        <button id="send-button" (click)="sendMessage(messageInput)">Send</button>
+      </div>
+  
+      <!-- Error Message -->
+      <p class="error-message" #errorMessage></p>
+    </div>
+</div>
