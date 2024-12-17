@@ -30,7 +30,7 @@ export class SignUpComponent {
         console.log('Response from backend:', response);
 
         // Navigate to the home page or a success page after successful registration
-        this.router.navigate(['/home']);
+        this.router.navigate(['/sign-in']);
       },
       error: (err) => {
         console.error('Error during registration:', err);

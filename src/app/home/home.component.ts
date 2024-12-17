@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
-import { CartService } from '../cart.service'; // Import the CartService
+import { ProductService } from '../product.service';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-home',
@@ -9,46 +8,48 @@ import { CartService } from '../cart.service'; // Import the CartService
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  products: any[] = [];
-  notificationMessage: string = '';
-  notificationType: string = 'hidden';
+  filteredProducts: any[] = [];
+  searchQuery: string = '';
+  minPrice: number = 0;
+  maxPrice: number = 1000;
 
-  constructor(private http: HttpClient, private router: Router, private cartService: CartService) {}
+  constructor(
+    private productService: ProductService,
+    private cartService: CartService
+  ) {}
 
   ngOnInit(): void {
-    this.fetchProducts();
-    this.checkForFeedback();
-  }
-
-  fetchProducts(): void {
-    const apiUrl = 'http://localhost:5000/products/get_all_product'; // Replace with your API
-    this.http.get<any[]>(apiUrl).subscribe({
-      next: (data) => (this.products = data),
-      error: (err) => console.error('Failed to fetch products', err),
+    this.productService.fetchAllProducts(); // Load all products
+    this.productService.filteredProducts$.subscribe((data) => {
+      this.filteredProducts = data;
     });
   }
 
-  addToCart(productName: string, productPrice: number): void {
-    if (!productName || productPrice <= 0) {
-      this.showNotification('Error: Invalid product.', 'error');
-    } else {
-      this.cartService.addToCart({ name: productName, price: productPrice, quantity: 1 });
-      this.showNotification(`${productName} added to cart for $${productPrice.toFixed(2)}.`, 'success');
-    }
+  searchProducts(): void {
+    this.productService.searchProducts(this.searchQuery);
   }
 
-  showNotification(message: string, type: string): void {
-    this.notificationMessage = message;
-    this.notificationType = type;
-
-    setTimeout(() => (this.notificationType = 'hidden'), 3000);
+  filterProductsByPrice(): void {
+    this.productService.filterProductsByPrice(this.minPrice, this.maxPrice);
   }
 
-  checkForFeedback(): void {
-    const feedbackReceived = localStorage.getItem('feedbackReceived');
-    if (feedbackReceived) {
-      this.showNotification('Thank you for your feedback!', 'success');
-      localStorage.removeItem('feedbackReceived');
-    }
+  resetFilters(): void {
+    this.searchQuery = '';
+    this.minPrice = 0;
+    this.maxPrice = 1000;
+    this.productService.resetFilters();
   }
-}
+
+  addToCart(product: any): void {
+    this.cartService.addToCart({ name: product.name, price: product.price, quantity: 1 });
+    const notification = document.getElementById("notification");
+  if (notification) {
+    notification.textContent = `${product.name} has been added to the cart!`;
+    notification.classList.add("show");
+
+    // Remove the notification after 3 seconds
+    setTimeout(() => {
+      notification.classList.remove("show");
+    }, 3000);
+  }
+}}
