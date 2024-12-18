@@ -10,6 +10,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { FilteredProductsComponent } from './filtered-products/filtered-products.component';
+import { ViewFeedbackComponent } from './view-feedback/view-feedback.component';
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'sign-up', component: SignUpComponent },
   { path: 'sign-in', component: SignInComponent },
+  { path: 'view-feedback', component:ViewFeedbackComponent },
   { path: '', redirectTo: '/profile', pathMatch: 'full'},
   {path: 'filtered-products', component: FilteredProductsComponent },
     // Add Listing Creation route

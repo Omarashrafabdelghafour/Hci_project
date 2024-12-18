@@ -15,6 +15,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FilteredProductsComponent } from './filtered-products/filtered-products.component';
+import { ViewFeedbackComponent } from './view-feedback/view-feedback.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { FilteredProductsComponent } from './filtered-products/filtered-products
     ProfileComponent,
     SignUpComponent,
     SignInComponent,
-    FilteredProductsComponent // Add the new components to declarations
+    FilteredProductsComponent,
+    ViewFeedbackComponent // Add the new components to declarations
   ],
   imports: [
     BrowserModule,
