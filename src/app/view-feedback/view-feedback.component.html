@@ -1,0 +1,16 @@
+<p>view-feedback works!</p>
+<div class="feedback-container">
+    <h2>Feedback</h2>
+    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+    <ul *ngIf="feedbackList.length > 0; else noFeedback">
+      <li *ngFor="let feedback of feedbackList" class="feedback-item">
+        <p><strong>Rating:</strong> {{ feedback.rating }} ⭐</p>
+        <p><strong>Comment:</strong> {{ feedback.comment }}</p>
+        <p><strong>Submitted At:</strong> {{ feedback.createdAt | date: 'medium' }}</p>
+      </li>
+    </ul>
+    <ng-template #noFeedback>
+      <p>No feedback available at the moment.</p>
+    </ng-template>
+  </div>
+  

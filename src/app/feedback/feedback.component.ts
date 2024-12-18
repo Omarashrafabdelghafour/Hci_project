@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-feedback',
@@ -44,9 +43,9 @@ export class FeedbackComponent {
         this.confirmationMessage = 'Thank you for your feedback!'; // Set confirmation message
         this.errorMessage = null; // Clear any previous error messages
 
-        // Navigate back to the home page after a brief delay (for demonstration)
+        // Auto-navigate to the View Feedback page
         setTimeout(() => {
-          this.router.navigate(['/home']);
+          this.router.navigate(['/view-feedback']); // Redirect to ViewFeedbackComponent
         }, 2000); // Delay for 2 seconds before navigating
       },
       (error) => {
