@@ -24,8 +24,8 @@ export class ListingCreationComponent {
       return;
     }
 
-    // Retrieve the access token from localStorage
-    const token = localStorage.getItem('access_token');
+    // Retrieve the access token from sessionStorage
+    const token = sessionStorage.getItem('access_token');
 
     if (!token) {
       this.showNotification('No token found. Please log in again.', 'error');
@@ -46,7 +46,7 @@ export class ListingCreationComponent {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
     // Send POST request with headers including the Bearer token
-    this.http.post('http://localhost:5000/products/add', productData, { headers }).subscribe({
+    this.http.post('https://restapi-omarashrafabdelghafour-omars-projects-67aea2a3.vercel.app/products/add', productData, { headers }).subscribe({
       next: (response) => {
         this.showNotification('Product added successfully!', 'success');
         this.resetForm();

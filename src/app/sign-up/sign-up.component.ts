@@ -15,7 +15,7 @@ export class SignUpComponent {
   constructor(private router: Router, private http: HttpClient) {}
 
   onSubmit() {
-    const apiUrl = 'http://localhost:5000/auth/register';
+    const apiUrl = 'https://restapi-omarashrafabdelghafour-omars-projects-67aea2a3.vercel.app/auth/register';
 
     // Payload to send to the backend
     const payload = {

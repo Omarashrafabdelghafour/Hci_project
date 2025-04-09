@@ -39,7 +39,7 @@ export class ChatComponent {
       content: messageText,
     };
 
-    this.http.post('http://localhost:5000/messages/send', messageData).subscribe({
+    this.http.post('https://restapi-omarashrafabdelghafour-omars-projects-67aea2a3.vercel.app/messages/send', messageData).subscribe({
       next: (response) => {
         console.log('Message sent successfully', response);
         // After the message is sent, simulate a received message

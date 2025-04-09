@@ -9,7 +9,8 @@ import { Router } from '@angular/router';
 export class ProfileComponent {
   // Declare the router property
   private router: Router;
-
+  email_ = sessionStorage.getItem('email');
+  
   // Inject the router in the constructor
   constructor(router: Router) {
     this.router = router; // Initialize the router property

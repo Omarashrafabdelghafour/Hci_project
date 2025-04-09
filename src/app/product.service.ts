@@ -9,7 +9,7 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class ProductService {
-  private apiBaseUrl = 'http://localhost:5000/products'; // API base URL
+  private apiBaseUrl = 'https://restapi-omarashrafabdelghafour-omars-projects-67aea2a3.vercel.app/products'; // API base URL
   private products: any[] = []; // Local cache of all products
 
   private filteredProductsSource = new BehaviorSubject<any[]>([]); // BehaviorSubject for filtered products

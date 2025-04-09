@@ -18,7 +18,7 @@ export class ViewFeedbackComponent implements OnInit {
 
   // Method to load feedback data from the backend
   loadFeedback(): void {
-    this.http.get<any[]>('http://localhost:5000/reviews/Get_all_review').subscribe(
+    this.http.get<any[]>('https://restapi-omarashrafabdelghafour-omars-projects-67aea2a3.vercel.app/reviews/Get_all_review').subscribe(
       (response) => {
         this.feedbackList = response; // Store the response in the feedback list
         this.errorMessage = null; // Clear error messages if successful
