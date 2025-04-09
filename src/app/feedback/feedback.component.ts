@@ -30,13 +30,13 @@ export class FeedbackComponent {
     };
 
     // Send the feedback data to the backend API
-    this.http.post('http://localhost:5000/reviews/create', feedbackData).subscribe(
+    this.http.post('https://restapi-omarashrafabdelghafour-omars-projects-67aea2a3.vercel.app/reviews/create', feedbackData).subscribe(
       (response) => {
         // Handle the response if submission is successful
         console.log('Feedback submitted:', response);
 
-        // Store feedback received flag in local storage
-        localStorage.setItem('feedbackReceived', 'true');
+        // Store feedback received flag in session storage
+        sessionStorage.setItem('feedbackReceived', 'true');
 
         // Update UI state
         this.feedbackSubmitted = true; // Set the flag to indicate feedback was submitted

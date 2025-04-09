@@ -17,15 +17,15 @@ export class StatisticsOverviewComponent implements OnInit {
   }
 
   fetchOrders(): void {
-    const email = localStorage.getItem('user_email'); // Get user email from localStorage
-    const token = localStorage.getItem('access_token'); // Get token from localStorage
+    const email = sessionStorage.getItem('user_email'); // Get user email from sessionStorage
+    const token = sessionStorage.getItem('access_token'); // Get token from sessionStorage
 
     if (!email || !token) {
       this.errorMessage = 'User email or access token is missing. Please log in again.';
       return;
     }
 
-    const apiUrl = `http://localhost:5000/orders/${email}`;
+    const apiUrl = `https://restapi-omarashrafabdelghafour-omars-projects-67aea2a3.vercel.app/orders/${email}`;
     const headers = new HttpHeaders({
       Authorization: `Bearer ${token}`, // Add token to header
     });

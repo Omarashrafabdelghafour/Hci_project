@@ -36,7 +36,6 @@ import { ViewFeedbackComponent } from './view-feedback/view-feedback.component';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    RouterModule.forRoot([]) ,
    HttpClientModule,
     // Add AppRoutingModule to imports
   ],

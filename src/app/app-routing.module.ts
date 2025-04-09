@@ -22,11 +22,10 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'sign-up', component: SignUpComponent },
   { path: 'sign-in', component: SignInComponent },
-  { path: 'view-feedback', component:ViewFeedbackComponent },
-  { path: '', redirectTo: '/profile', pathMatch: 'full'},
-  {path: 'filtered-products', component: FilteredProductsComponent },
-    // Add Listing Creation route
+  { path: 'view-feedback', component: ViewFeedbackComponent },
+  { path: 'filtered-products', component: FilteredProductsComponent }
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

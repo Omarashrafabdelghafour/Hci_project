@@ -23,7 +23,7 @@ export class ShoppingCartComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadCart();
-    this.useremail = localStorage.getItem('user_email'); // Retrieve user email from localStorage
+    this.useremail = sessionStorage.getItem('user_email'); // Retrieve user email from sessionStorage
   }
 
   loadCart(): void {
@@ -48,7 +48,7 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   proceedToCheckout(): void {
-    const accessToken = localStorage.getItem('access_token'); // Retrieve token from localStorage
+    const accessToken = sessionStorage.getItem('access_token'); // Retrieve token from sessionStorage
 
     if (!accessToken) {
       this.notificationMessage = 'Authorization token is missing. Please log in again.';
@@ -67,7 +67,7 @@ export class ShoppingCartComponent implements OnInit {
       useremail: this.useremail,
     };
 
-    const apiUrl = 'http://localhost:5000/orders/create'; // Replace with your backend endpoint
+    const apiUrl = 'https://restapi-omarashrafabdelghafour-omars-projects-67aea2a3.vercel.app/orders/create'; // Replace with your backend endpoint
     const headers = new HttpHeaders({
       Authorization: `Bearer ${accessToken}`, // Set Authorization header
     });
