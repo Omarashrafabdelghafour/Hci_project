@@ -1,17 +1,45 @@
 {
+  "version": 2,
   "builds": [
     {
-      "src": "package.json",
-      "use": "@vercel/node"
+      "src": "docs/browser/**/*",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/Hci_project/assets/(.*)",
+      "headers": {
+        "cache-control": "public, max-age=31536000, immutable"
+      }
+    },
+    {
+      "src": "/Hci_project/(.*)",
+      "dest": "/docs/browser/$1"
+    },
+    {
+      "src": "/Hci_project/.*",
+      "dest": "/docs/browser/index.html"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/docs/browser/index.html"
     }
   ],
   "build": {
     "env": {
-      "CI": "false"
+      "CI": "false",
+      "NODE_ENV": "production"
     },
     "commands": [
       "npm install",
-      "ng build --prod"
+      "npm run build -- --configuration production"
     ]
-  }
+  },
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/docs/browser/index.html"
+    }
+  ]
 }
